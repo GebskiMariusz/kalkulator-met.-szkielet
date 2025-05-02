@@ -3,30 +3,152 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kalkulator Metaboliczny</title>
+  <title>Kalkulator Metaboliczny 5.3</title>
   <link rel="stylesheet" href="style.css">
   <script defer src="app.js"></script>
   <script defer src="ai.js"></script>
 </head>
 <body>
   <main id="main-container">
+
+    <!-- Intro z AIKiem + Edukacja -->
     <section id="intro" class="scene">
       <h1>Kalkulator Metaboliczny</h1>
-      <p><strong>Twoje ciało to silnik. Styl życia to paliwo. A metabolizm to droga.</strong></p>
-      <h3>Insulinooporność – Azor i Wilczur</h3>
-      <p>Insulina to pies Azor, który pilnuje magazynów tłuszczu. Kortyzol to jego kumpel Wilczur. Gdy Wilczur szczeka (stres), Azor nie wypuszcza nic z magazynu. Nawet jak jesteś na diecie – nie chudniesz.</p>
-      <h3>Witamina D i Magnez – Kapitan i Silnik</h3>
-      <p>Witamina D to kapitan – dowodzi. Magnez to silnik – wykonuje. Bez silnika statek nie ruszy, nawet jak kapitan krzyczy. I odwrotnie.</p>
-      <h3>Mechanizmy metaboliczne – zaznacz, co Cię dotyczy:</h3>
+      <p>Dowiedz się, co Twój organizm próbuje Ci powiedzieć.</p>
+
+      <h2>Insulinooporność</h2>
+      <p><strong>Co to jest?</strong><br>
+      Insulinooporność to stan, w którym organizm przestaje prawidłowo reagować na insulinę — hormon odpowiedzialny za transport glukozy do komórek. Nawet jeśli glukoza we krwi jest jeszcze w normie, trzustka musi produkować więcej insuliny, by utrzymać równowagę.</p>
+      <p><strong>Dlaczego to ważne?</strong><br>
+      IR może rozwijać się latami bez wykrycia. Często nie daje typowych objawów — lub są one ignorowane (zmęczenie, mgła mózgowa, głód po posiłku). Może prowadzić do stłuszczenia wątroby, zaburzeń hormonalnych, PCOS, cukrzycy typu 2 i chorób serca.</p>
+      <p><strong>Typowe objawy:</strong></p>
       <ul>
-        <li><input type="checkbox"> Jem mało, a tyję</li>
-        <li><input type="checkbox"> Ciągłe zmęczenie mimo snu</li>
-        <li><input type="checkbox"> Wzdęcia po jedzeniu</li>
-        <li><input type="checkbox"> Wahania nastroju, drażliwość</li>
-        <li><input type="checkbox"> Ciągła ochota na coś słodkiego</li>
+        <li>Senność po posiłkach, szczególnie po węglowodanach</li>
+        <li>Uporczywy głód, zwłaszcza na słodkie i tłuste rzeczy</li>
+        <li>Mgła mózgowa, trudności z koncentracją</li>
+        <li>Brak efektów odchudzania mimo diety</li>
+        <li>Trądzik, wypadanie włosów, nieregularne miesiączki</li>
+        <li>Otyłość brzuszna</li>
       </ul>
-      <button onclick="goTo('symptoms')">Przejdź dalej</button>
+      <details>
+        <summary>Mechanizm</summary>
+        <p>Wyobraź sobie, że insulina to "Azor" – pies pilnujący zapasów energii. Jeśli Azor zaczyna szczekać non stop (bo komórki nie słuchają), to magazyny się przepełniają, tłuszcz odkłada się, a Ty masz ciągle sygnał: „Jeszcze jedz!”. Kortyzol – "Wilczur" – może dodatkowo osłabiać działanie insuliny, zwłaszcza pod wpływem stresu.</p>
+      </details>
+
+      <h2>Witamina D i Magnez</h2>
+      <p><strong>Dlaczego są tak ważne?</strong><br>
+      Witamina D wpływa nie tylko na kości, ale też na odporność, tarczycę, nastrój, wagę, a nawet poziom glukozy. Magnez uczestniczy w ponad 300 procesach — w tym w regulacji stresu, snu, poziomu cukru i konwersji hormonów.</p>
+      <p><strong>Co może powodować niedobory?</strong><br>
+      Mała ekspozycja na słońce, kawa, alkohol, stres, leki (np. IPP, diuretyki), zaburzenia wchłaniania, dieta uboga w zielone warzywa i pestki.</p>
+      <p><strong>Objawy niedoboru wit. D:</strong></p>
+      <ul>
+        <li>Częste infekcje</li>
+        <li>Osłabienie, zmęczenie</li>
+        <li>Bóle kostno-mięśniowe</li>
+        <li>Niska odporność, depresyjny nastrój</li>
+      </ul>
+      <p><strong>Objawy niedoboru magnezu:</strong></p>
+      <ul>
+        <li>Skurcze mięśni, drgania powiek</li>
+        <li>Trudności z zasypianiem</li>
+        <li>Lęk, nadpobudliwość, nerwowość</li>
+        <li>Zespół niespokojnych nóg</li>
+      </ul>
+      <details>
+        <summary>Mechanizm</summary>
+        <p>Witamina D to kapitan, a magnez to silnik. Bez silnika kapitan nie ruszy statku — nawet jeśli ma plan. Niedobory jednego zaburzają działanie drugiego. Magnez jest niezbędny do aktywacji wit. D, a jego niedobór pogłębia stres, kawa, alkohol i niektóre leki.</p>
+      </details>
+
+      <button onclick="goTo('symptoms')">Przejdź do kalkulatora</button>
     </section>
+
+    <!-- Objawy i dane subiektywne -->
+    <section id="symptoms" class="scene hidden">
+      <h2>Objawy i styl życia</h2>
+      <p>Zaznacz objawy, które Cię dotyczą:</p>
+      <ul>
+        <li><input type="checkbox"> Przewlekłe zmęczenie</li>
+        <li><input type="checkbox"> Senność po posiłkach</li>
+        <li><input type="checkbox"> Głód mimo jedzenia</li>
+        <li><input type="checkbox"> Wzdęcia / zaparcia</li>
+        <li><input type="checkbox"> Mgła mózgowa / trudności z koncentracją</li>
+        <li><input type="checkbox"> Problemy ze snem / budzenie się w nocy</li>
+        <li><input type="checkbox"> Trądzik / przetłuszczanie się skóry</li>
+        <li><input type="checkbox"> Napięcie nerwowe / rozdrażnienie</li>
+      </ul>
+      <input type="text" placeholder="Dieta / używki / sen / leki / suplementy">
+      <button onclick="goTo('intro')">Cofnij</button>
+      <button onclick="goTo('measurements')">Dalej</button>
+    </section>
+
+    <!-- Dane fizyczne i nawyki -->
+    <section id="measurements" class="scene hidden">
+      <h2>Dane fizyczne i styl życia</h2>
+      <input type="number" placeholder="Wzrost (cm)">
+      <input type="number" placeholder="Waga (kg)">
+      <input type="number" placeholder="Obwód pasa (cm)">
+      <input type="number" placeholder="Wiek">
+      <input type="text" placeholder="Styl życia, godziny posiłków, praca zmianowa">
+      <button onclick="goTo('symptoms')">Cofnij</button>
+      <button onclick="goTo('labs')">Dalej</button>
+    </section>
+
+    <!-- Badania laboratoryjne -->
+    <section id="labs" class="scene hidden">
+      <h2>Wyniki badań (opcjonalnie)</h2>
+      <p><strong>Glukoza i insulina</strong></p>
+<input type="text" placeholder="Glukoza (mg/dL)">
+<input type="text" placeholder="Insulina (µIU/mL)">
+<input type="text" placeholder="HOMA-IR">
+
+<p><strong>Lipidogram</strong></p>
+<input type="text" placeholder="Cholesterol całkowity (mg/dL)">
+<input type="text" placeholder="HDL (mg/dL)">
+<input type="text" placeholder="LDL (mg/dL)">
+<input type="text" placeholder="Trójglicerydy (TG) (mg/dL)">
+
+<p><strong>Tarczyca</strong></p>
+<input type="text" placeholder="TSH (µIU/mL)">
+<input type="text" placeholder="FT3 (pg/mL)">
+<input type="text" placeholder="FT4 (ng/dL)">
+
+<p><strong>Witaminy i minerały</strong></p>
+<input type="text" placeholder="Witamina D 25(OH) (ng/mL)">
+<input type="text" placeholder="Magnez (mg/dL)">
+<input type="text" placeholder="Żelazo (µg/dL)">
+<input type="text" placeholder="Ferrytyna (ng/mL)">
+<input type="text" placeholder="Witamina B12 (pg/mL)">
+
+<p><strong>Inne</strong></p>
+<input type="text" placeholder="CRP (mg/L)">
+<input type="text" placeholder="Homocysteina (µmol/L)">
+<input type="text" placeholder="Kwas moczowy (mg/dL)">
+<input type="text" placeholder="Kreatynina (mg/dL)">
+      <!-- ... -->
+      <button onclick="goTo('measurements')">Cofnij</button>
+      <button onclick="goTo('analysis')">Analiza</button>
+    </section>
+
+    <!-- Analiza AI i raport -->
+    <section id="analysis" class="scene hidden">
+      <h2>Twoja analiza</h2>
+      <div id="ai-analysis">
+        <p>Analizuję Twoje dane...</p>
+        <!-- tylko wypełnione pola będą analizowane -->
+      </div>
+      <button onclick="goTo('labs')">Cofnij</button>
+      <button onclick="goTo('report')">Pokaż raport</button>
+    </section>
+
+    <!-- Raport końcowy -->
+    <section id="report" class="scene hidden">
+      <h2>Raport końcowy</h2>
+      <div id="final-report">
+        <p>Podsumowanie objawów, wyników i zaleceń...</p>
+      </div>
+      <button onclick="goTo('analysis')">Cofnij</button>
+    </section>
+
   </main>
 </body>
 </html>
